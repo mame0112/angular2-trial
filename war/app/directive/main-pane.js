@@ -9,9 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var question_1 = require('../data/question');
 var MainPane = (function () {
     function MainPane() {
     }
+    MainPane.prototype.ngOnInit = function () {
+        this.questionData = new question_1.QuestionData(1, "description", "choice A is...", "choice B is...");
+    };
     MainPane = __decorate([
         core_1.Component({
             selector: "main-pane",
