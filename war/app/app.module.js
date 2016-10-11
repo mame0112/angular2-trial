@@ -11,13 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
+var main_pane_1 = require('./directive/main-pane');
+var sub_pane_1 = require('./directive/sub-pane');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
+            // Import other modules into this own module
             imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent],
+            //Registor irective and pipe. Original directives will be added here.
+            declarations: [
+                app_component_1.AppComponent,
+                main_pane_1.MainPane,
+                sub_pane_1.SubPane
+            ],
+            //Define application entry point component.
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

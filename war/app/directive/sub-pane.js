@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var SubPane = (function () {
+    function SubPane() {
     }
-    AppComponent = __decorate([
+    SubPane = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n  <main-pane></main-pane>\n  <sub-pane></sub-pane>\n  "
+            selector: "sub-pane",
+            template: "sub"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SubPane);
+    return SubPane;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SubPane = SubPane;
+//# sourceMappingURL=sub-pane.js.map

@@ -1,8 +1,18 @@
 import { Component } from '@angular/core';
 
+import { Question } from './data/question';
+import { MainPane } from './directive/main-pane';
+import { SubPane } from './directive/sub-pane';
+
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular App</h1>'
+  template: `
+  <main-pane></main-pane>
+  <sub-pane></sub-pane>
+  `
+
 })
 
-export class AppComponent { }
+export class AppComponent {
+
+}
