@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Question } from './data/question';
 import { MainPane } from './directive/main-pane';
 import { SubPane } from './directive/sub-pane';
 
