@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { MainPane } from './directive/main-pane';
 import { SubPane } from './directive/sub-pane';
 
+import { QuestionDataService } from './service/questiondata-service';
+
 @NgModule({
 
 	// Import other modules into this own module
@@ -15,6 +17,10 @@ import { SubPane } from './directive/sub-pane';
 	AppComponent,
 	MainPane,
 	SubPane
+	],
+
+	providers: [
+		QuestionDataService
 	],
 
 	//Define application entry point component.

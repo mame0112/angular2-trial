@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var main_pane_1 = require('./directive/main-pane');
 var sub_pane_1 = require('./directive/sub-pane');
+var questiondata_service_1 = require('./service/questiondata-service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,6 +26,9 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 main_pane_1.MainPane,
                 sub_pane_1.SubPane
+            ],
+            providers: [
+                questiondata_service_1.QuestionDataService
             ],
             //Define application entry point component.
             bootstrap: [app_component_1.AppComponent]

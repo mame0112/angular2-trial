@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var questiondata_service_1 = require('../service/questiondata-service');
-var MainPane = (function () {
-    // define private questionDataService at the same time.
-    function MainPane(questionDataService) {
-        this.questionDataService = questionDataService;
+var mock_question_1 = require('../mock/mock-question');
+var QuestionDataService = (function () {
+    function QuestionDataService() {
     }
-    MainPane.prototype.ngOnInit = function () {
-        this.questions = this.questionDataService.getQuestions();
+    QuestionDataService.prototype.getQuestions = function () {
+        return mock_question_1.QUESTIONS;
     };
-    MainPane = __decorate([
-        core_1.Component({
-            selector: "main-pane",
-            template: "\n\t<ul>\n\t\t<li *ngFor=\"let question  of questions\">\n\t\t\t<p>{{question.description}}</p>\n\t\t</li>\n\t<ul>\n\t"
-        }), 
-        __metadata('design:paramtypes', [questiondata_service_1.QuestionDataService])
-    ], MainPane);
-    return MainPane;
+    QuestionDataService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], QuestionDataService);
+    return QuestionDataService;
 }());
-exports.MainPane = MainPane;
-//# sourceMappingURL=main-pane.js.map
+exports.QuestionDataService = QuestionDataService;
+//# sourceMappingURL=questiondata-service.js.map

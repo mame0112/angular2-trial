@@ -1,5 +1,5 @@
 "use strict";
-var QUESTIONS = [
+exports.QUESTIONS = [
     { questionId: 1, description: 'Test Desc 1', choiceA: 'Test choice A1', choiceB: 'Test choice B1' },
     { questionId: 1, description: 'Test Desc 2', choiceA: 'Test choice A2', choiceB: 'Test choice B2' },
     { questionId: 1, description: 'Test Desc 3', choiceA: 'Test choice A3', choiceB: 'Test choice B3' },
