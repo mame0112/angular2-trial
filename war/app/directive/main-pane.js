@@ -16,12 +16,19 @@ var MainPane = (function () {
         this.questionDataService = questionDataService;
     }
     MainPane.prototype.ngOnInit = function () {
-        this.questions = this.questionDataService.getQuestions();
+        // Get data with sync()
+        this.getQuestionDataList();
+        // this.questions = this.questionDataService.getQuestions();
+    };
+    MainPane.prototype.getQuestionDataList = function () {
+        var _this = this;
+        this.questionDataService.getQuestions().then(function (questions) { return _this.questions = questions; });
     };
     MainPane = __decorate([
         core_1.Component({
             selector: "main-pane",
-            template: "\n\t<ul>\n\t\t<li *ngFor=\"let question  of questions\">\n\t\t\t<p>{{question.description}}</p>\n\t\t</li>\n\t<ul>\n\t"
+            template: "\n\t\t<ul class=\"heroes\">\n\t\t\t<li *ngFor=\"let question  of questions\">\n\t\t\t\t<p>{{question.description}}</p>\n\t\t\t</li>\n\t\t<ul>\n\t",
+            providers: [questiondata_service_1.QuestionDataService]
         }), 
         __metadata('design:paramtypes', [questiondata_service_1.QuestionDataService])
     ], MainPane);

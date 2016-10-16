@@ -8,12 +8,13 @@ import { QuestionDataService } from '../service/questiondata-service';
 @Component ({
 	selector: `main-pane`,
 	template: `
-	<ul>
-		<li *ngFor="let question  of questions">
-			<p>{{question.description}}</p>
-		</li>
-	<ul>
-	`
+		<ul class="heroes">
+			<li *ngFor="let question  of questions">
+				<p>{{question.description}}</p>
+			</li>
+		<ul>
+	`,
+	providers: [QuestionDataService]
 })
 
 export class MainPane implements OnInit{
@@ -28,7 +29,14 @@ export class MainPane implements OnInit{
 	constructor(private questionDataService: QuestionDataService){}
 
 	ngOnInit(): void {
-		this.questions = this.questionDataService.getQuestions();
+
+		// Get data with sync()
+		this.getQuestionDataList();
+		// this.questions = this.questionDataService.getQuestions();
+	}
+
+	getQuestionDataList(): void {
+		this.questionDataService.getQuestions().then(questions => this.questions = questions);
 	}
 
 }

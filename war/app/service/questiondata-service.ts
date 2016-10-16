@@ -5,7 +5,7 @@ import { QUESTIONS } from '../mock/mock-question';
 
 @Injectable()
 export class QuestionDataService {
-	getQuestions(): QuestionData[] {
-		return QUESTIONS;
+	getQuestions(): Promise<QuestionData[]> {
+		return Promise.resolve(QUESTIONS);
 	}
 }

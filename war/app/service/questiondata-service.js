@@ -14,7 +14,7 @@ var QuestionDataService = (function () {
     function QuestionDataService() {
     }
     QuestionDataService.prototype.getQuestions = function () {
-        return mock_question_1.QUESTIONS;
+        return Promise.resolve(mock_question_1.QUESTIONS);
     };
     QuestionDataService = __decorate([
         core_1.Injectable(), 
