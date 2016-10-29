@@ -10,7 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var app_dashboard_component_1 = require('./app.dashboard.component');
 var main_pane_1 = require('./directive/main-pane');
 var sub_pane_1 = require('./directive/sub-pane');
 var questiondata_service_1 = require('./service/questiondata-service');
@@ -20,10 +22,31 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             // Import other modules into this own module
-            imports: [platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: '',
+                        redirectTo: '/dashboard',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: 'dashboard',
+                        component: app_dashboard_component_1.DashboardComponent
+                    },
+                    {
+                        path: 'overview',
+                        component: main_pane_1.MainPane
+                    },
+                    {
+                        path: 'detail',
+                        component: sub_pane_1.SubPane
+                    }
+                ])
+            ],
             //Registor irective and pipe. Original directives will be added here.
             declarations: [
                 app_component_1.AppComponent,
+                app_dashboard_component_1.DashboardComponent,
                 main_pane_1.MainPane,
                 sub_pane_1.SubPane
             ],

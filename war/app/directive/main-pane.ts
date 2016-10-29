@@ -8,7 +8,7 @@ import { QuestionDataService } from '../service/questiondata-service';
 @Component ({
 	selector: `main-pane`,
 	template: `
-		<ul class="heroes">
+		<ul>
 			<li *ngFor="let question  of questions">
 				<p>{{question.description}}</p>
 			</li>
@@ -32,7 +32,6 @@ export class MainPane implements OnInit{
 
 		// Get data with sync()
 		this.getQuestionDataList();
-		// this.questions = this.questionDataService.getQuestions();
 	}
 
 	getQuestionDataList(): void {
