@@ -14,8 +14,9 @@ var DashboardComponent = (function () {
     }
     DashboardComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: "my-dashboard",
-            template: "Here is dashboard"
+            template: "dashboard.component.html"
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardComponent);

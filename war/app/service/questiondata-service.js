@@ -14,7 +14,16 @@ var QuestionDataService = (function () {
     function QuestionDataService() {
     }
     QuestionDataService.prototype.getQuestions = function () {
-        return Promise.resolve(mock_question_1.QUESTIONS);
+        return new Promise(function (resolve) {
+            return resolve(mock_question_1.QUESTIONS);
+        });
+        // return new Promise(function(resolve){
+        // 	return Promise.resolve(QUESTIONS);
+        // });
+        // return Promise.resolve(QUESTIONS);
+    };
+    QuestionDataService.prototype.getQuestion = function (questionId) {
+        return this.getQuestions().then(function (questions) { return questions.find(function (question) { return question.questionId === questionId; }); });
     };
     QuestionDataService = __decorate([
         core_1.Injectable(), 

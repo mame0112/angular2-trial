@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './app.dashboard.component';
+import { DetailComponent } from './app.detail.component';
 
 import { MainPane } from './directive/main-pane';
-import { SubPane } from './directive/sub-pane';
+// import { SubPane } from './directive/sub-pane';
 
 import { QuestionDataService } from './service/questiondata-service';
 
@@ -20,17 +20,17 @@ import { QuestionDataService } from './service/questiondata-service';
 				redirectTo: '/dashboard',
 				pathMatch: 'full'
 			},
+			// {
+			//   path: 'dashboard',
+			//   component: DashboardComponent
+			// },
 			{
-			  path: 'dashboard',
-			  component: DashboardComponent
-			},
-			{
-				path: 'overview',
+				path: 'dashboard',
 				component: MainPane
 			},
 			{
-				path: 'detail',
-				component: SubPane
+				path: 'detail/:questionId',
+				component: DetailComponent
 			}
 
 		])
@@ -39,9 +39,10 @@ import { QuestionDataService } from './service/questiondata-service';
 	//Registor irective and pipe. Original directives will be added here.
 	declarations: [
 		AppComponent,
-		DashboardComponent,
+		// DashboardComponent,
 		MainPane,
-		SubPane
+		DetailComponent
+		// SubPane
 	],
 
 	providers: [

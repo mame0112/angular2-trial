@@ -12,9 +12,9 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
-var app_dashboard_component_1 = require('./app.dashboard.component');
+var app_detail_component_1 = require('./app.detail.component');
 var main_pane_1 = require('./directive/main-pane');
-var sub_pane_1 = require('./directive/sub-pane');
+// import { SubPane } from './directive/sub-pane';
 var questiondata_service_1 = require('./service/questiondata-service');
 var AppModule = (function () {
     function AppModule() {
@@ -29,26 +29,26 @@ var AppModule = (function () {
                         redirectTo: '/dashboard',
                         pathMatch: 'full'
                     },
+                    // {
+                    //   path: 'dashboard',
+                    //   component: DashboardComponent
+                    // },
                     {
                         path: 'dashboard',
-                        component: app_dashboard_component_1.DashboardComponent
-                    },
-                    {
-                        path: 'overview',
                         component: main_pane_1.MainPane
                     },
                     {
-                        path: 'detail',
-                        component: sub_pane_1.SubPane
+                        path: 'detail/:questionId',
+                        component: app_detail_component_1.DetailComponent
                     }
                 ])
             ],
             //Registor irective and pipe. Original directives will be added here.
             declarations: [
                 app_component_1.AppComponent,
-                app_dashboard_component_1.DashboardComponent,
+                // DashboardComponent,
                 main_pane_1.MainPane,
-                sub_pane_1.SubPane
+                app_detail_component_1.DetailComponent
             ],
             providers: [
                 questiondata_service_1.QuestionDataService

@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var questiondata_service_1 = require('../service/questiondata-service');
 var MainPane = (function () {
     // define private questionDataService at the same time.
-    function MainPane(questionDataService) {
+    function MainPane(router, questionDataService) {
+        this.router = router;
         this.questionDataService = questionDataService;
     }
     MainPane.prototype.ngOnInit = function () {
@@ -23,13 +25,18 @@ var MainPane = (function () {
         var _this = this;
         this.questionDataService.getQuestions().then(function (questions) { return _this.questions = questions; });
     };
+    MainPane.prototype.showDetail = function (question) {
+        var link = ['/detail', question.questionId];
+        this.router.navigate(link);
+    };
     MainPane = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: "main-pane",
-            template: "\n\t\t<ul>\n\t\t\t<li *ngFor=\"let question  of questions\">\n\t\t\t\t<p>{{question.description}}</p>\n\t\t\t</li>\n\t\t<ul>\n\t",
+            templateUrl: "dashboard.component.html",
             providers: [questiondata_service_1.QuestionDataService]
         }), 
-        __metadata('design:paramtypes', [questiondata_service_1.QuestionDataService])
+        __metadata('design:paramtypes', [router_1.Router, questiondata_service_1.QuestionDataService])
     ], MainPane);
     return MainPane;
 }());

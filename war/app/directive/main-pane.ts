@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 import { QuestionData } from '../data/question';
 import { QUESTIONS } from '../mock/mock-question';
@@ -6,14 +7,9 @@ import { QUESTIONS } from '../mock/mock-question';
 import { QuestionDataService } from '../service/questiondata-service';
 
 @Component ({
+	moduleId: module.id,
 	selector: `main-pane`,
-	template: `
-		<ul>
-			<li *ngFor="let question  of questions">
-				<p>{{question.description}}</p>
-			</li>
-		<ul>
-	`,
+	templateUrl: `dashboard.component.html`,
 	providers: [QuestionDataService]
 })
 
@@ -26,7 +22,10 @@ export class MainPane implements OnInit{
 
 
 	// define private questionDataService at the same time.
-	constructor(private questionDataService: QuestionDataService){}
+	constructor(
+		private router: Router,
+		private questionDataService: QuestionDataService
+	){}
 
 	ngOnInit(): void {
 
@@ -36,6 +35,11 @@ export class MainPane implements OnInit{
 
 	getQuestionDataList(): void {
 		this.questionDataService.getQuestions().then(questions => this.questions = questions);
+	}
+
+	showDetail(question : QuestionData): void{
+		let link= ['/detail', question.questionId];
+		this.router.navigate(link);
 	}
 
 }

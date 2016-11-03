@@ -1,0 +1,5 @@
+<ul>
+	<li *ngFor="let question  of questions" (click)="showDetail(question)">
+		<p>{{question.description}} / {{question.questionId}}</p>
+	</li>
+<ul>
