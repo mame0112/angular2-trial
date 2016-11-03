@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Params } from '@angular/router';
+import { Location} from '@angular/common';
 
 import { QuestionDataService } from './service/questiondata-service';
 
@@ -19,7 +19,8 @@ export class DetailComponent implements OnInit{
 
 	constructor(
 		private route: ActivatedRoute,
-		private qeustionDataService: QuestionDataService
+		private qeustionDataService: QuestionDataService,
+		private location: Location
 		){}
 	@Input()
 	question : QuestionData;
@@ -35,5 +36,9 @@ export class DetailComponent implements OnInit{
 			let questionId = +params['questionId'];
 			this.qeustionDataService.getQuestion(questionId).then(question => this.question = question);
 		});
+	}
+
+	goBack(): void{
+		this.location.back();
 	}
 }

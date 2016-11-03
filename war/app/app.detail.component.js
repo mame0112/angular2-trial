@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
 var questiondata_service_1 = require('./service/questiondata-service');
 var question_1 = require('./data/question');
 var DetailComponent = (function () {
-    function DetailComponent(route, qeustionDataService) {
+    function DetailComponent(route, qeustionDataService, location) {
         this.route = route;
         this.qeustionDataService = qeustionDataService;
+        this.location = location;
     }
     DetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,6 +30,9 @@ var DetailComponent = (function () {
             _this.qeustionDataService.getQuestion(questionId).then(function (question) { return _this.question = question; });
         });
     };
+    DetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', question_1.QuestionData)
@@ -38,7 +43,7 @@ var DetailComponent = (function () {
             selector: 'sub-pane',
             templateUrl: 'question.detail.component.html'
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, questiondata_service_1.QuestionDataService])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, questiondata_service_1.QuestionDataService, common_1.Location])
     ], DetailComponent);
     return DetailComponent;
 }());
